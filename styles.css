@@ -1,0 +1,766 @@
+:root {
+    font-size: 16px; /* Обычно 1rem = 16px, но это можно изменить для масштабирования */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #fafafa;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+header {    
+    background-color: #333;
+    color: #fff;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(135deg, #a66bff, #7000d3);
+    padding: 1rem;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 0.9375rem; /* 15px */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1.875rem;
+    transition: color 0.3s ease, background-color 0.3s ease, font-size 0.3s ease;;
+}
+
+h2, h3, h4 {
+    color: #7700ff;
+    margin-top: 0;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+nav ul li a.active {
+    background-color: #ffffff; /* Цвет фона для активной кнопки */
+    color: #24002d; /* Цвет текста для активной кнопки */
+}
+
+.menu-toggle {
+    display: none; /* Скрыть по умолчанию */
+}
+
+@media (max-width: 768px) {
+    nav {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(135deg, #a66bff, #7000d3);
+        background-size: 100% 200%;
+        background-position: top;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #a66bff, #7000d3);
+        background-size: 100% 200%;
+        background-position: bottom;
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        border: none;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 1rem;
+    }
+
+    .menu-toggle {
+        display: block;
+        background-color: #a66bff;
+        color: #fff;
+        padding: 1rem;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 1.875rem;
+        margin-right: auto;
+    }
+
+    .menu-toggle:active {
+        background-color: #ffffff; /* Цвет фона для активной кнопки */
+        color: #24002d; /* Цвет текста для активной кнопки */
+    }
+
+    .menu-toggle:after { 
+        display: inline-block;
+        margin-left: 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    nav.active ul {
+        display: flex;
+        max-height: 300px; /* Достаточная высота для показа всех элементов */
+        /* Возможно, потребуется подстроить под количество элементов меню */
+    }
+}
+
+@media (max-width: 900px) {
+    nav ul li a {
+        display: block;
+        padding: 0.5rem;
+        font-size: 0.875rem; /* Уменьшить размер текста */
+    }
+}
+
+section {
+    min-height: 100vh; /* Каждая секция занимает всю высоту экрана */
+    padding-top: 3.125rem; /* Для отступа под фиксированное меню, если оно есть */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.section-light {
+    background: #fff;
+}
+
+#home {
+    background-image: url(images/white-grey-flecks.png);
+    background-repeat: repeat;
+}
+
+.home-container {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.home-container:hover .photo-container {
+    transform: scale(2.1);
+    margin-bottom: 6.25rem; /* Добавьте отступ снизу */
+}
+
+.photo-container {
+    transition: transform 0.75s ease, margin-bottom 0.75s ease; /* Плавный переход для эффекта увеличения */
+}
+
+.profile-photo {
+    width: 9.375rem;
+    height: 9.375rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0.625rem 0;
+    box-shadow: 0 0 0.625rem rgb(234, 0, 255);
+    transition: width 0.3s ease, height 0.3s ease, margin 0.3s ease;
+}
+
+.home-text {
+    max-width: 37.5rem;
+    margin: 0.625rem 0;
+}
+
+.home-text h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.625rem;
+    letter-spacing: 0.0625rem;
+}
+
+.home-text p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Медиазапросы для адаптации на мобильных устройствах */
+
+@media (max-width: 768px) {
+    .profile-photo {
+        width: 7.5rem; /* 120px */
+        height: 7.5rem;
+    }
+
+    .home-container {
+        padding: 1rem;
+    }
+
+    .home-text {
+        max-width: 90%;
+    }
+
+    .home-text h2 {
+        font-size: 1.25rem; /* Уменьшение размера шрифта */
+    }
+
+    .home-text p {
+        font-size: 0.875rem; /* 14px */
+    }
+}
+
+@media (max-width: 500px) {
+    .profile-photo {
+        width: 6.25rem; /* 100px */
+        height: 6.25rem;
+    }
+
+    .home-text h2 {
+        font-size: 1rem; /* Даже меньше для маленьких экранов */
+    }
+
+    .home-text p {
+        font-size: 0.75rem; /* 12px */
+    }
+
+    .home-container {
+        padding: 0.5rem;
+    }
+}
+
+#gallery {
+    background-image: url(images/seamless-pattern-food-icons.jpg);
+    background-repeat: repeat;
+    background-size: 25rem;
+    padding: 4rem;
+}
+
+.gallery-text {
+    font-size: 1.25rem;
+    margin-bottom: 0.625rem;
+    letter-spacing: 0.0625rem;
+    text-align: center;
+    transition: font-size 0.3s ease;
+}
+
+.gallery-container {
+    display: flex;
+    flex-direction: row;
+    margin: 1.25rem auto;
+    max-width: 60rem;
+}
+
+.main-photo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-photo img {
+    box-shadow: 0 0 0.625rem rgb(234, 0, 255);
+    max-width: 100%;
+    min-width: 10rem; 
+    max-height: 27.725rem; 
+    object-fit: cover; 
+    border-radius: 0.5rem;
+    transition: opacity 0.5s ease-in-out, max-height 0.3s ease, width 0.3s ease;
+}
+
+.photo-description {
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-align: center;
+    font-style: italic;
+    transition: font-size 0.3s ease;
+    color: #8600a1;
+    font-weight: bold
+}
+
+.thumbnail-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1rem;
+    justify-content: center;
+    margin-bottom: 5rem;
+    transition: margin-left 0.3s ease;
+}
+
+.thumbnails {
+    padding-left: 1rem;
+    max-width: 6.875rem;
+    max-height: 22rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.5s ease, max-width 0.3s ease, max-height 0.3s ease;
+}
+
+.thumbnails .thumb {
+    box-shadow: 0 0 0.625rem rgb(234, 0, 255);
+    width: 6.25rem;
+    height: 6.25rem;
+    margin: 0.3125rem 0;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.thumbnails .slide-animation {
+    transition: transform 0.5s ease-in-out;
+}
+
+.nav-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    width: 2.3rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0.3125rem 0;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #555;
+}
+
+.thumbnails .thumb:hover {
+    transform: scale(1.1);
+}
+
+.thumbnails .thumb.loaded {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    #gallery {
+        padding-top: 6rem;
+    }
+
+    .gallery-text {
+        font-size: 1rem;
+    }
+
+    .main-photo img {
+        max-height: 20rem; /* Уменьшение высоты изображений для планшетов */
+    }
+
+    .photo-description {
+        font-size: 0.875rem; /* Уменьшение размера шрифта */
+    }
+
+    .thumbnails {
+        max-height: 17.6rem;
+    }
+
+    .thumbnails .thumb {
+        width: 5rem; /* Уменьшение размеров миниатюр */
+        height: 5rem;
+    }
+
+    .nav-button {
+        width: 2rem;
+        height: 2rem; /* Уменьшение размера кнопок для планшетов */
+    }
+
+    .gallery-container {
+        padding: 1rem;
+        max-width: 90%;
+    }
+
+    .main-photo img {
+        max-height: 18.75rem;
+    }
+}
+
+@media (max-width: 500px) {
+    #gallery {
+        padding-top: 6rem;
+    }
+
+    .gallery-text {
+        font-size: 0.75rem;
+    }
+
+    .main-photo img {
+        max-height: 15rem; /* Еще больше уменьшение высоты изображений для телефонов */
+    }
+
+    .photo-description {
+        font-size: 0.75rem; /* Уменьшение размера шрифта для маленьких экранов */
+    }
+
+    .thumbnails {
+        max-height: 15.84rem;
+    }
+
+    .thumbnails .thumb {
+        width: 4.5rem; /* Еще больше уменьшение размеров миниатюр */
+        height: 4.5rem;
+    }
+
+    .nav-button {
+        width: 1.5rem;
+        height: 1.5rem; /* Уменьшение размера кнопок для планшетов */
+    }
+
+    .gallery-container {
+        padding: 1rem;
+        max-width: 90%;
+    }
+
+    .main-photo img {
+        max-height: 12.5rem;
+    }
+}
+
+#services {
+    padding-top: 4rem;
+    text-align: center;
+    background-image: url(images/white-grey-quad-wicker.png);
+    background-repeat: repeat;
+    background-size: 2rem;
+}
+
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    transition: margin 0.3s ease-in-out;
+}
+
+.language-tile {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-align: center;
+    min-width: 10rem; 
+    min-height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
+
+.language-tile:hover {
+    transform: scale(1.05);
+    background-color: #e0e0e0;
+}
+
+.language-tile img {
+    width: auto;
+    height: 5rem;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 37.5rem;
+    width: 80%;
+    text-align: left;
+    font-size: 1.5rem;
+    transition: font-size 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.close-button {
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #services {
+        padding-top: 6rem;
+    }
+
+    .languages-grid {
+        grid-template-columns: repeat(2, 1fr); /* Переход на две колонки на средних экранах */
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+    
+    .modal-content {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .languages-grid {
+        grid-template-columns: 1fr; /* Переход на одну колонку на малых экранах */
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .modal-content {
+        font-size: 1rem;
+    }
+}
+
+#achievements {
+    padding: 2.5rem;
+    padding-top: 4rem;
+    background-image: url(images/fitness-background-vector-illustration-hand-drawing.jpg);
+    background-repeat: repeat;
+    text-align: center;
+}
+
+.achievement-section {
+    margin-bottom: 2rem;
+}
+
+.achievement-section h3 {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.achievement-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    
+}
+
+.achievement-photo, .achievement-text {
+    flex: 1;
+    max-width: 18.75rem; 
+    margin: 0.5rem;
+}
+
+.achievement-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.achievement-photo img:hover {
+    transform: scale(1.05); /* Легкое увеличение на 5% при наведении */
+}
+
+.achievement-text {
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.625rem rgb(234, 0, 255);
+    text-align: left;
+}
+
+.achievement-text h4 {
+    margin-bottom: 0.5rem;
+}
+
+.achievement-text p {
+    margin-bottom: 0;
+}
+
+.collage-container {
+    display: flex;
+    width: 18.75rem;
+    height: 18.75rem;
+    border-radius: 0.625rem;
+    overflow: hidden;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Занимает половину контейнера */
+}
+
+.right-column {
+    flex: 1; /* Занимает оставшуюся часть контейнера */
+}   
+
+.collage-item {
+    width: 100%;
+    height: 50%; /* Каждое изображение в left-column занимает по половине */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    padding: 0.125rem; /* Отступы между изображениями */
+    box-sizing: border-box; /* Учитываем отступы в размер элемента */
+}
+
+.right-column .collage-item {
+    height: 100%; /* Изображение в правой колонке занимает всю высоту */
+}
+
+.collage-item:hover {
+    transform: scale(1.05); /* Легкое увеличение на 5% при наведении */
+}
+
+@media (max-width: 768px) {
+    #achievements {
+        padding-top: 6rem;
+    }
+    
+    .achievement-text, .achievement-photo {
+        max-width: 90%; /* Увеличение ширины на более узких экранах */
+        text-align: center; /* Центрирование текста */
+    }
+
+    .collage-container {
+        width: 50%;
+        height: auto;
+        flex-direction: column; /* Переключаемся на колонку на планшетах */
+    }
+
+    .left-column, .right-column {
+        flex-direction: row;
+        height: auto;
+    }
+
+    .collage-item {
+        width: 50%;
+        height: auto;
+    }
+
+    .right-column .collage-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .achievement-text {
+        font-size: 0.875rem; /* Уменьшение размера шрифта для телефонов */
+    }
+
+    .achievement-text p {
+        line-height: 1.5; /* Увеличение межстрочного интервала для читаемости */
+    }
+
+    .collage-container {
+        flex-direction: column; /* Переключаемся на колонку на мобильных устройствах */
+    }
+
+    .left-column, .right-column {
+        flex-direction: column;
+    }
+
+    .collage-item {
+        width: 100%;
+        height: auto;
+    }
+}
+
+#footer {
+    width: 100%;
+}
+
+.footer-content {
+    background-image: url(images/grad.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    height: 5rem;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: #fff;
+}
+
+.footer-text {
+    flex: 1;
+    font-size: 0.875rem;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icon.vk {
+    color: #4c75a3; /* Цвет для ВКонтакте */
+}
+
+.social-icon.telegram {
+    color: #0088cc; /* Цвет для Telegram */
+}
+
+.social-icon.whatsapp {
+    color: #25D366; /* Цвет для WhatsApp */
+}
+
+.social-icon:hover.vk {
+    color: #3b5998; /* Цвет при наведении для ВКонтакте */
+}
+
+.social-icon:hover.telegram {
+    color: #0077b5; /* Цвет при наведении для Telegram */
+}
+
+.social-icon:hover.whatsapp {
+    color: #128C7E; /* Цвет при наведении для WhatsApp */
+}
+
+.email-link {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.email-link:hover {
+    color: #ccc;
+    text-decoration: none;
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СС Site</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#gallery">Галерея</a></li>
+                <li><a href="#services">Языки Программирования</a></li>
+                <li><a href="#achievements">Другие Достижения</a></li>
+                <li><a href="#footer">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="home-container">
+            <div class="photo-container">
+                <img src="images/fantas.jpg" alt="Фото" class="profile-photo" id="animatedImage">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+                <script>
+                    gsap.to("#animatedImage", {
+                        duration: 2,
+                        y: 20,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "power1.inOut"
+                    });
+                </script>
+            </div>
+            <div class="home-text">
+                <h2>Привет, меня зовут Воробьёв Дмитрий!</h2>
+                <p>Я 2003 года рождения. Я учусь в институте ИАТЭ НИЯУ МИФИ в городе Обнинск по специальности: "Прикладная математика и информатика". Люблю спорт, компьютерные игры, дружные компании и природу. Мечтаю о путешествиях по всему миру.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="gallery-text">
+            <h2>Галерея</h2>
+        </div>
+        <div class="gallery-container">
+            <div class="main-photo">
+                <img id="largePhoto" src="images/fnts.jpg" alt="Большое фото">
+                <div id="photoDescription" class="photo-description">
+                    <p id="photoText">Описание для первой фотографии</p>
+                </div>
+            </div>
+            <div class="thumbnail-navigation">
+                <button id="prev" class="nav-button">↑</button>
+                <div id="thumbnails" class="thumbnails">
+                </div>
+                <button id="next" class="nav-button">↓</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Мои Языки Программирования</h2>
+        <div class="languages-grid">
+            <div class="language-tile" data-language="Python">
+                <img src="images/python.png" alt="Python">
+                <h3>Python</h3>
+            </div>
+            <div class="language-tile" data-language="C++">
+                <img src="images/cpp.png" alt="C++">
+                <h3>C++</h3>
+            </div>
+            <div class="language-tile" data-language="html/JavaScrupt">
+                <img src="images/hjc.png" alt="html/JavaScrupt">
+                <h3>html/JavaScrupt</h3>
+            </div>
+            <div class="language-tile" data-language="Java">
+                <img src="images/java.png" alt="Java">
+                <h3>Java</h3>
+            </div>
+            <div class="language-tile" data-language="SQL">
+                <img src="images/sql.png" alt="SQL">
+                <h3>SQL</h3>
+            </div>
+            <div class="language-tile" data-language="R">
+                <img src="images/r.png" alt="R">
+                <h3>R</h3>
+            </div>
+        </div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h3 id="language-name"></h3>
+                <p id="language-details"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <h2>Другие достижения</h2>
+        <div class="achievement-section">
+            <h3>Спорт</h3>
+            <div class="achievement-item">
+                <div class="achievement-photo">
+                    <img src="images/dance.jpg" alt="Бальные танцы">
+                </div>
+                <div class="achievement-text">
+                    <h4>Бальные танцы</h4>
+                    <p>Занимался Бальными танцами более 10-и лет. Учавствовал более чем в 50-ти турниров в Москве и других городах. Получил большое количество кубков и медалей. Достиг D класса.</p>
+                </div>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-text">
+                    <h4>Самбо</h4>
+                    <p>Занимался Самбо более 8-и лет. Учавствовал в большом количестве соревнований и получил большое количество наград. Имел 1ый разряд.</p>
+                </div>
+                <div class="achievement-photo">
+                    <img src="images/sambo.jpg" alt="Самбо">
+                </div>
+            </div>
+        </div>
+        <div class="achievement-section">
+            <h3>Другое</h3>
+            <div class="achievement-item">
+                <div class="collage-container">
+                    <div class="left-column">
+                        <img src="images/finam.jpeg" alt="Фото 1" class="collage-item">
+                        <img src="images/iate.jpg" alt="Фото 2" class="collage-item">
+                    </div>
+                    <div class="right-column">
+                        <img src="images/jeck.jpg" alt="Фото 3" class="collage-item">
+                    </div>
+                </div>
+                <div class="achievement-text">
+                    <h4>Другие достижения</h4>
+                    <p>Сдал на права. Вожу машину уже больше года.<br>Проходил практику в компании Финам в качестве QA инженера.<br>Закончил школу с золотой медалью, сейчас учусь на 4-ом курсе на направлении Прикладная математика и информатика в ИАТЭ НИЯУ МИФИ. Планирую поступать в магистратуру.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>
+                    Данный сайт сделан, в качестве лабораторной работы.
+                    Моя почта: 
+                    <a href="mailto:dima.vorobyov.020803@yandex.ru" class="email-link">dima.vorobyov.020803@yandex.ru</a>
+                </p>
+            </div>
+            <div class="footer-social-icons">
+                <a href="https://vk.com/yourprofile" target="_blank" class="social-icon vk">
+                    <i class="fab fa-vk"></i>
+                </a>
+                <a href="https://t.me/yourprofile" target="_blank" class="social-icon telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <a href="https://wa.me/yourphonenumber" target="_blank" class="social-icon whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
+
